@@ -38,7 +38,7 @@ class Paysbuy
     end
 
     {status: status, amount: amount.to_d, response: prepare_response_for_serialize(ws_return)}
-  rescue Net::ReadTimeout, Errno::ECONNRESET, Errno::ETIMEDOUT, Wasabi::Resolver::HTTPError
+  rescue Net::ReadTimeout, Errno::ECONNRESET, Errno::ETIMEDOUT, Wasabi::Resolver::HTTPError, Savon::SOAP::Fault
     raise Paysbuy::HttpError
   end
 
